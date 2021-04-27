@@ -1,14 +1,15 @@
 Ship Ship;
-Invader[] Invaders = new Invader[10];
-int k = 80;
-int t = 40;
+Invader[] Invaders = new Invader[20];
+int k = 100;
+int t = 50;
+color c;
 public void setup() {
   size(700,700);
   spawnInvaders();
 }
 
 public void draw() {
-  background(220);
+  background(#6B5B78);
   
   for (Invader v : Invaders) {
     v.draw();
@@ -27,10 +28,13 @@ public void mouseReleased() {
 }
 
 private void spawnInvaders() {
-  for (int i = 0; i < Invaders.length; i++) {
-    int x = k += 45;
-    int y = t += 2;
-    
-    Invaders[i] = new Invader(x, y);
+  int n = 0;
+  for (int i = 0; i < 4; i++) {
+    for ( int j = 0; j < 5;j++){
+    int x = j*k + 130;
+    int y = i*t + 60;
+    Invaders[n] = new Invader(x, y);
+    n += 1;
+    }
   }
 }

@@ -1,10 +1,10 @@
-public class Ship extends Entity {
+public class Lazer extends Entity {
   //fields
   public PVector vel, force;
   public boolean active = true;
 
   //constructor
-  public Ship(int x, int y) {
+  public Lazer(int x, int y) {
     super(#FDD023, 2, 20, x, y);
     float angle = random(PI * 1.3, PI * 1.7);
     vel = PVector.fromAngle(angle);
@@ -12,11 +12,11 @@ public class Ship extends Entity {
   }
 
   public void move() {
-    //this.pos.add(vel);
+    this.pos.add(vel);
     this.vel.add(force);
   }
 
-  private void ShipVsBorder() {
+  private void LazerVsBorder() {
     if (this.pos.x > width
       || this.pos.x < 0
       || this.pos.y > height)
@@ -25,7 +25,7 @@ public class Ship extends Entity {
     }
   }
   
-  private void ShipVsInvader(Invader o) {
+  private void LazerVsInvader(Invader o) {
     if (this.getCollisionBox().intersects(o.getCollisionBox())) {
       this.active = false;
     }

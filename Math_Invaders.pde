@@ -1,4 +1,4 @@
-Ship Ship;
+Lazer Lazer;
 Invader[] Invaders = new Invader[20];
 int k = 100;
 int t = 50;
@@ -9,22 +9,22 @@ public void setup() {
 }
 
 public void draw() {
-  background(#6B5B78);
+  background(#a2a2a2);
   
-  for (Invader v : Invaders) {
+    for (Invader v : Invaders) {
     v.draw();
   }
   
-  if (Ship != null && Ship.active) {
-    Ship.move();
+  if (Lazer != null && Lazer.active) {
+    Lazer.move();
     for (Invader v : Invaders)
-      Ship.ShipVsInvader(v);
-    Ship.draw();
+      Lazer.LazerVsInvader(v);
+    Lazer.draw();
   }
 }
 
 public void mouseReleased() {
-   Ship = new Ship(350, 650);
+   Lazer = new Lazer(350, 650);
 }
 
 private void spawnInvaders() {

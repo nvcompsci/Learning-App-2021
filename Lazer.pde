@@ -6,7 +6,7 @@ public class Lazer extends Entity {
   //constructor
   public Lazer(int x, int y) {
     super(#FDD023, 2, 20, x, y);
-    float angle = random(PI * 1.3, PI * 1.7);
+    float angle = 3 * PI/2;
     vel = PVector.fromAngle(angle);
     force = PVector.fromAngle(angle);
   }
@@ -28,6 +28,7 @@ public class Lazer extends Entity {
   private void LazerVsInvader(Invader o) {
     if (this.getCollisionBox().intersects(o.getCollisionBox())) {
       this.active = false;
+      o.active = false;
     }
   }
 }

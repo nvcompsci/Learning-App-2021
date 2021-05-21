@@ -9,29 +9,33 @@ public void setup() {
 }
 
 public void draw() {
-  background(#a2a2a2);
+  background(#A08EAA);
+  
   
     for (Invader v : Invaders) {
+      if(v != null && v.active)
     v.draw();
   }
   
   if (Lazer != null && Lazer.active) {
     Lazer.move();
-    for (Invader v : Invaders)
+    for (Invader v : Invaders){
+    if(v != null && v.active)
       Lazer.LazerVsInvader(v);
+    }
     Lazer.draw();
   }
 }
 
 public void mouseReleased() {
-   Lazer = new Lazer(350, 650);
+   Lazer = new Lazer(350, 550);
 }
 
 private void spawnInvaders() {
   int n = 0;
   for (int i = 0; i < 4; i++) {
     for ( int j = 0; j < 5;j++){
-    int x = j*k + 130;
+    int x = j*k + 140;
     int y = i*t + 60;
     Invaders[n] = new Invader(x, y);
     n += 1;

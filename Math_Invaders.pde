@@ -12,6 +12,7 @@ public void draw() {
   background(#A08EAA);
   
   
+  
     for (Invader v : Invaders) {
       if(v != null && v.active)
     v.draw();
@@ -36,9 +37,18 @@ private void spawnInvaders() {
   for (int i = 0; i < 4; i++) {
     for ( int j = 0; j < 5;j++){
     int x = j*k + 140;
-    int y = i*t + 60;
+    int y = i*t + 80;
     Invaders[n] = new Invader(x, y);
     n += 1;
     }
+  }
+}
+  public void keyRelesed() {
+    for (Ship p : ship){
+     if (keyCode == 65) {
+      p.x += 5;
+     } else if (keyCode == 68) {
+      p.x -= 5;
+     }
   }
 }

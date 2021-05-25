@@ -24,7 +24,7 @@ public class Lazer extends Entity {
       this.active = false;
     }
   }
-  
+
   private void LazerVsInvader(Invader o) {
     if (this.getCollisionBox().intersects(o.getCollisionBox())) {
       this.active = false;

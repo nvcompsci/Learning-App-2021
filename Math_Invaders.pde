@@ -1,7 +1,7 @@
 Lazer Lazer;
 Ship ship;
 Invader[] Invaders = new Invader[30];
-AnswerInvader[] AnswerInvaders = new answerInvader[30];
+AnswerInvader[] AnswerInvaders = new AnswerInvader[30];
 Button b1, b2;
 int k = 60;
 int t = 60;
@@ -10,7 +10,7 @@ public void setup() {
   size(700, 700);
   build();
   spawnInvaders();
-  spawn answerInvaders();
+  //spawnAnswerInvaders();
   ship = new Ship(350, 550);
 }
 
@@ -47,7 +47,7 @@ public void mouseReleased() {
 }
 
 public void build() {
-  b1 = new Button(140, 80, 20, 20, "25", #F0000F);
+  b1 = new Button(140, 80, 20, 20, "25", #e93d00);
   b2 = new Button(250, 350, 150, 50, "5*5", #aaaaaa);
 }
 public void keyPressed() {

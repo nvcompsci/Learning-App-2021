@@ -1,14 +1,16 @@
 Lazer Lazer;
 Ship ship;
-Invader[] Invaders = new Invader[20];
+Invader[] Invaders = new Invader[30];
+AnswerInvader[] AnswerInvaders = new answerInvader[30];
 Button b1, b2;
-int k = 100;
-int t = 50;
+int k = 60;
+int t = 60;
 color c;
 public void setup() {
   size(700, 700);
   build();
   spawnInvaders();
+  spawn answerInvaders();
   ship = new Ship(350, 550);
 }
 
@@ -36,23 +38,17 @@ public void draw() {
 }
 
 public void mouseReleased() {
-  Lazer = new Lazer(350, 550);
+  if (b1.isClicked()) {
+    println(b1.title);
+  }
+  if (b2.isClicked()) {
+    println(b2.title);
+  }
 }
+
 public void build() {
   b1 = new Button(140, 80, 20, 20, "25", #F0000F);
   b2 = new Button(250, 350, 150, 50, "5*5", #aaaaaa);
-}
-
-private void spawnInvaders() {
-  int n = 0;
-  for (int i = 0; i < 4; i++) {
-    for ( int j = 0; j < 5; j++) {
-      int x = j*k + 140;
-      int y = i*t + 80;
-      Invaders[n] = new Invader(x, y);
-      n += 1;
-    }
-  }
 }
 public void keyPressed() {
 
@@ -61,14 +57,26 @@ public void keyPressed() {
   } else if (keyCode == 65) {
     ship.move(-5);
   } else if (keyCode == 87) {
-    Lazer = new Lazer(350, 550);
+    Lazer = new Lazer((int) ship.pos.x + 9, (int) ship.pos.y - 20);
   }
 }
-public void keyReleased() {
 
+public void keyReleased() {
   if (keyCode == 65) {
     ship.move(0);
   } else if (keyCode == 68) {
     ship.move(0);
+  }
+}
+
+private void spawnInvaders() {
+  int n = 0;
+  for (int i = 0; i < 5; i++) {
+    for ( int j = 0; j < 6; j++) {
+      int x = j*k + 200;
+      int y = i*t + 40;
+      Invaders[n] = new Invader(x, y);
+      n += 1;
+    }
   }
 }

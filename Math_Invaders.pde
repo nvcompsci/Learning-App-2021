@@ -2,7 +2,7 @@ Lazer Lazer;
 Ship ship;
 Invader[] Invaders = new Invader[30];
 AnswerInvader[] AnswerInvaders = new AnswerInvader[30];
-Button b1, b2;
+Button b1, b2, b3;
 int k = 60;
 int t = 60;
 color c;
@@ -15,9 +15,10 @@ public void setup() {
 }
 
 public void draw() {
-  background(#1f001f);
+  background(#0f001f);
   b1.draw();
   b2.draw();
+  b3.draw();
 
   ship.draw();
   ship.update();
@@ -40,15 +41,21 @@ public void draw() {
 public void mouseReleased() {
   if (b1.isClicked()) {
     println(b1.title);
+    exit();
+    
   }
   if (b2.isClicked()) {
     println(b2.title);
   }
+  if (b3.isClicked()) {
+    println(b3.title);
+  }
 }
 
 public void build() {
-  b1 = new Button(140, 80, 20, 20, "25", #e93d00);
-  b2 = new Button(250, 350, 150, 50, "5*5", #aaaaaa);
+  b1 = new Button(200, 160, 20, 20, "10", #6a0101);
+  b2 = new Button(250, 350, 150, 50, "5+5", #494f9c);
+  b3 = new Button(-1, 650, 200, 50, "Use A and D to move, W to shoot" , #4b2970);
 }
 public void keyPressed() {
 
